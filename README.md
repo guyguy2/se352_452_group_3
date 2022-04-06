@@ -1,1 +1,2 @@
-# se352_452_group_3
+# se452 Group 3
+# Team Members
