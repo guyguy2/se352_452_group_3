@@ -1,2 +1,3 @@
-# se452 Group 3
-# Team Members
+# DePaul SE452 Group 3
+## Team Members
+## 
