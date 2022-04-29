@@ -21,6 +21,17 @@
             "projectName": "demo",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FindARoomApplication<se452>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "edu.depaul.se452.group3.hotel.FindARoomApplication",
+            "projectName": "se452",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
