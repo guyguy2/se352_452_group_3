@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -12,9 +13,9 @@ import lombok.Data;
 @Entity
 public class Room {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
 
     private int number;
-    private List<String> feartures;
+    private String features;
 }
