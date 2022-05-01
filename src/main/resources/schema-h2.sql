@@ -4,7 +4,10 @@ DROP TABLE IF EXISTS guest;
 CREATE TABLE room (
   id INT AUTO_INCREMENT,    
     number INT not null,
-    features varchar(100),
+    amenities varchar(200),
+    description varchaar(100),
+    status varchar(50),
+    price float(10),
     admitted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (ID)    
 );
