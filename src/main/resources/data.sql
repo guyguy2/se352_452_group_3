@@ -15,3 +15,7 @@ INSERT INTO guest(name, email) VALUES
             ('Julie Venturoli', 'jventuroli4@marketwatch.com'),
             ('SFrieda Liddiatt', 'fliddiatt6@yahoo.co.jp');
 
+INSERT INTO hotel(name, description, address) VALUES
+            ('Hilton', '4 stars', '123 main'),
+            ('Hyatt', '3 stars', '123 Applewood');
+

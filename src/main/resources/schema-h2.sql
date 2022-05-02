@@ -19,4 +19,13 @@ CREATE TABLE guest (
     PRIMARY KEY (ID)    
 );
 
+CREATE TABLE hotel (
+  id INT AUTO_INCREMENT,
+    name varchar(50),
+    description varchar(50),
+    address varchar(50),
+
+    PRIMARY KEY (ID)
+);
+
 
