@@ -1,4 +1,5 @@
-package relational;
+package edu.depaul.se452.group3.persistence;
+
 
 import java.util.List;
 import javax.persistence.Entity;
