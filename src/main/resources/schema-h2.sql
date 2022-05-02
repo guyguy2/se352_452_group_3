@@ -5,7 +5,7 @@ CREATE TABLE room (
   id INT AUTO_INCREMENT,    
     number INT not null,
     amenities varchar(200),
-    description varchaar(100),
+    description varchar(100),
     status varchar(50),
     price float(10),
     admitted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -35,9 +35,10 @@ CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 
 CREATE TABLE customers (
   id INT AUTO_INCREMENT,    
-    customerID VARCHAR(10),
+    CUST_ID VARCHAR(10),
     name VARCHAR(50),
     email VARCHAR(50),
+    ph VARCHAR(50),
     PRIMARY KEY (ID)    
 );
 

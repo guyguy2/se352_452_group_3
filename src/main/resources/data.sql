@@ -19,7 +19,7 @@ INSERT INTO hotel(name, description, address) VALUES
             ('Hilton', '4 stars', '123 main'),
             ('Hyatt', '3 stars', '123 Applewood');
 
-INSERT INTO customers (cust_ID, nm, email, ph) VALUES 
+INSERT INTO customers (cust_ID, name, email, ph) VALUES
             ('112233', 'Gordon Ramsey', 'gramsey@gordonramsey.com', '773-435-4455'),
             ('334455', 'Wolfgang Puck', 'wpuck@wolfgangpuck.com', '847-567-4323'),
             ('667788', 'Marcus Samuelsson', 'msamuelsson@marcussam.com', '847-667-9687'),
