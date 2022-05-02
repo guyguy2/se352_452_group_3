@@ -1,6 +1,5 @@
 package edu.depaul.se452.group3.persistence;
 
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +15,19 @@ public class Room {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
 
+    //@Column(name="num")
     private int number;
-    private String features;
+    
+    //@Column(name="desc")
+    private String description;
+
+    //@Column(name="amenities")
+    private String amenities;
+
+    //@Column(name="stat")
+    private String status;
+
+    //@Column(name="price")
+    private double price;
+
 }
