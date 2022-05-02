@@ -23,7 +23,8 @@
 hs_err_pid*
 
 #maven
-target/
+target/*
+
 .idea/vcs.xml
 .idea/uiDesigner.xml
 .idea/misc.xml
