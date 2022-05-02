@@ -1,11 +1,14 @@
 package edu.depaul.se452.group3;
 
+import edu.depaul.se452.group3.persistence.Room;
 import edu.depaul.se452.group3.persistence.RoomRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 @SpringBootApplication
 public class FindARoomApplication {
@@ -26,18 +29,20 @@ public class FindARoomApplication {
     public CommandLineRunner showRooms(RoomRepository repository) {
         return (args) -> {
             // fetch all
+            System.out.println("Find all:");
             repository.findAll().forEach((room) -> {
                 System.out.println(room);
             });
         };
     }
 
-    public CommandLineRunner FindRoom(RoomRepository repository) {
+    @Bean
+    public CommandLineRunner FindRoomByNumber(RoomRepository repository) {
+        System.out.println("FindRoomByName: ");
+
         return (args) -> {
-            // fetch all
-            repository.findAll().forEach((room) -> {
-                System.out.println(room);
-            });
+            Room results = repository.findByNumber(101);
+            System.out.println(results);
         };
     }
 
