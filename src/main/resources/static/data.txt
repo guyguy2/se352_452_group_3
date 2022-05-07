@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+        "id": "A-007",
+      "name": "James Bond",
+      "stu_type": "Graduate"
+    },
+    {
+        "id": "A-010",
+      "name": "Jason Bourne",
+      "stu_type": "Graduate"
+    },
+    {
+        "id": "A-400",
+      "name": "Carman Sandiego",
+      "stu_type": "Graduate"
+    },
+    {
+        "id": "A-100",
+      "name": "Carman Cortez",
+      "stu_type": "Under"
+    },
+    {
+        "id": "A-110",
+      "name": "Juni Cortez",
+      "stu_type": "Under"
+    }
+
+  ]
+}

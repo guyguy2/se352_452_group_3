@@ -1,25 +1,31 @@
 package edu.depaul.se452.group3.persistence;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import java.util.List;
+import javax.persistence.*;
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "Customer")
 public class Customer {
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@GeneratedValue
+	private long id;
+	
+	@Column(name = "cust_ID")
+	private String customerID;
 
-    private Long cust_ID; 
+	@Column(name = "name")
+	private String name;
 
-    private String name;
-    private String email;
-    private String ph;
+	private String email;
+
+	@Column(name = "ph")
+	private String customerPhone;
+
+//	@OneToMany(targetEntity=Reservation.class, mappedBy="id", fetch=FetchType.EAGER)
+//	private List <Reservation> reservations;
 
 }
