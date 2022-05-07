@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
+
 @SpringBootApplication
 public class FindARoomApplication {
     @Value("${app.greeting}")
@@ -45,7 +46,6 @@ public class FindARoomApplication {
             System.out.println(results);
         };
     }
-
 
 
 
