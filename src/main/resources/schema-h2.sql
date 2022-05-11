@@ -1,5 +1,10 @@
 DROP TABLE IF EXISTS room;
 DROP TABLE IF EXISTS guest;
+DROP TABLE IF EXISTS hotel_customers;
+DROP TABLE IF EXISTS hotel_rooms;
+DROP TABLE IF EXISTS customer_rooms;
+DROP TABLE IF EXISTS customer_reservations;
+DROP TABLE IF EXISTS reservation_rooms;
 
 CREATE TABLE room (
   id INT AUTO_INCREMENT,    
@@ -17,6 +22,13 @@ CREATE TABLE guest (
     name varchar(50),
     email varchar(50),
     PRIMARY KEY (ID)    
+);
+
+CREATE TABLE hotel_customers (
+    id INT AUTO_INCREMENT,
+    course_id long,
+    students_id long,
+    primary key(id)
 );
 
 
