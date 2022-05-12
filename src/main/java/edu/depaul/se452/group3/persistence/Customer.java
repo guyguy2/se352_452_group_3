@@ -5,10 +5,13 @@ import java.util.List;
 import javax.persistence.*;
 
 import lombok.Data;
+import lombok.ToString;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Data
 @Entity
-@Table(name = "Customer")
+@Table(name = "customers")
 public class Customer {
     @Id
 	@GeneratedValue
@@ -25,7 +28,18 @@ public class Customer {
 	@Column(name = "ph")
 	private String customerPhone;
 
-//	@OneToMany(targetEntity=Reservation.class, mappedBy="id", fetch=FetchType.EAGER)
-//	private List <Reservation> reservations;
+	@OneToMany (fetch = FetchType.EAGER)
+	@JoinTable(name = "CUSTOMER_ROOMS", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
+	@ToString.Exclude
+	private List<Room> rooms;
+
+	@OneToMany (fetch = FetchType.EAGER)
+	@JoinTable(name = "CUSTOMER_RESERVATIONS", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
+	@ToString.Exclude
+	private List<Reservation> reservations;
+
+
+
+
 
 }

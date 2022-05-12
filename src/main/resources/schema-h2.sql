@@ -1,8 +1,15 @@
-DROP TABLE IF EXISTS room;
-DROP TABLE IF EXISTS guest;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS hotel;
+DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS hotel_customers;
+DROP TABLE IF EXISTS hotel_rooms;
+DROP TABLE IF EXISTS customer_rooms;
+DROP TABLE IF EXISTS customer_reservations;
+DROP TABLE IF EXISTS reservation_rooms;
 
-CREATE TABLE room (
-  id INT AUTO_INCREMENT,    
+
+CREATE TABLE rooms (
+  id INT AUTO_INCREMENT,
     number INT not null,
     amenities varchar(200),
     description varchar(100),
@@ -12,28 +19,18 @@ CREATE TABLE room (
     PRIMARY KEY (ID)    
 );
 
-CREATE TABLE guest (
-  id INT AUTO_INCREMENT,    
-    name varchar(50),
-    email varchar(50),
-    PRIMARY KEY (ID)    
-);
-
 CREATE TABLE hotel (
   id INT AUTO_INCREMENT,
     name varchar(50),
     description varchar(50),
     address varchar(50),
-
     PRIMARY KEY (ID)
 );
 
 
-DROP TABLE IF EXISTS customers;
-
 CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 
-CREATE TABLE customer (
+CREATE TABLE customers (
   id INT AUTO_INCREMENT,    
     CUST_ID VARCHAR(10),
     name VARCHAR(50),
@@ -42,3 +39,37 @@ CREATE TABLE customer (
     PRIMARY KEY (ID)    
 );
 
+CREATE TABLE hotel_customers (
+    id INT AUTO_INCREMENT,
+        customer_id long,
+        hotel_id long,
+        primary key(id)
+);
+
+CREATE TABLE hotel_rooms (
+    id INT AUTO_INCREMENT,
+        hotel_id long,
+        rooms_id long,
+        primary key(id)
+);
+
+CREATE TABLE customer_rooms (
+    id INT AUTO_INCREMENT,
+        customer_id long,
+        rooms_id long,
+        primary key(id)
+);
+
+CREATE TABLE customer_reservations (
+    id INT AUTO_INCREMENT,
+        customer_id long,
+        reservations_id long,
+        primary key(id)
+);
+
+CREATE TABLE reservation_rooms (
+    id INT AUTO_INCREMENT,
+        reservations_id long,
+        rooms_id long,
+        primary key(id)
+)
