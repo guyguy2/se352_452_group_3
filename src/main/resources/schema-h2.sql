@@ -1,10 +1,14 @@
 DROP TABLE IF EXISTS customer CASCADE;
 DROP TABLE IF EXISTS room CASCADE;
 DROP TABLE IF EXISTS hotel CASCADE;
+DROP TABLE IF EXISTS hotel_rooms;
+DROP TABLE IF EXISTS customer_rooms;
+DROP TABLE IF EXISTS customer_reservations;
+DROP TABLE IF EXISTS reservation_rooms
 
 
-CREATE TABLE room (
-  id INT AUTO_INCREMENT,    
+CREATE TABLE rooms (
+  id INT AUTO_INCREMENT,
     number INT not null,
     amenities varchar(200),
     description varchar(100),
@@ -13,6 +17,7 @@ CREATE TABLE room (
     admitted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (ID)    
 );
+
 
 CREATE TABLE hotel (
   id INT AUTO_INCREMENT,
@@ -23,9 +28,11 @@ CREATE TABLE hotel (
     PRIMARY KEY (ID)
 );
 
+
+CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 --CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 
-CREATE TABLE customer (
+CREATE TABLE customers (
   id INT AUTO_INCREMENT,    
     CUST_ID VARCHAR(10),
     name VARCHAR(50),
@@ -34,3 +41,37 @@ CREATE TABLE customer (
     PRIMARY KEY (ID)    
 );
 
+CREATE TABLE hotel_customers (
+    id INT AUTO_INCREMENT,
+        customer_id long,
+        hotel_id long,
+        primary key(id)
+);
+
+CREATE TABLE hotel_rooms (
+    id INT AUTO_INCREMENT,
+        hotel_id long,
+        rooms_id long,
+        primary key(id)
+);
+
+CREATE TABLE customer_rooms (
+    id INT AUTO_INCREMENT,
+        customer_id long,
+        rooms_id long,
+        primary key(id)
+);
+
+CREATE TABLE customer_reservations (
+    id INT AUTO_INCREMENT,
+        customer_id long,
+        reservations_id long,
+        primary key(id)
+);
+
+CREATE TABLE reservation_rooms (
+    id INT AUTO_INCREMENT,
+        reservations_id long,
+        rooms_id long,
+        primary key(id)
+)
