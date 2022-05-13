@@ -8,13 +8,6 @@ INSERT INTO room (number, description, amenities, status, price) VALUES
     (204, 'Deluxe Guest Room, 2 Queen Beds, City View', 'Refrigerator, Bathrobes, Shower, 40-inch Smart TV, Minibar', 'Available', 630.00);
 
 
-INSERT INTO guest(name, email) VALUES
-            ('Sheena Wyre', 'swyre0@un.org'),
-            ('Dilly Caffery', 'dcaffery1@blogspot.com'),
-            ('Marysa Alyonov', 'malyonov3@utexas.edu'),
-            ('Julie Venturoli', 'jventuroli4@marketwatch.com'),
-            ('SFrieda Liddiatt', 'fliddiatt6@yahoo.co.jp');
-
 INSERT INTO hotel(name, description, address) VALUES
             ('Hilton', '4 stars', '123 main'),
             ('Hyatt', '3 stars', '123 Applewood');
