@@ -5,6 +5,8 @@ import edu.depaul.se452.group3.services.RoomService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,18 +16,27 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/rooms")
 @Log
 public class RoomController {
     @Autowired
     private RoomService service;
 
+//    @GetMapping("/")
+//    public List<Room> getAllRooms() {
+//        List<Room> rooms = service.findAll();
+//        log.log(Level.SEVERE, rooms.toString());
+//        return rooms;
+//    }
+
     @GetMapping("/")
-    public List<Room> getAllRooms() {
+    public String getAllRooms(Model model) {
         List<Room> rooms = service.findAll();
         log.log(Level.SEVERE, rooms.toString());
-        return rooms;
+        model.addAttribute("rooms", rooms);
+        return "rooms/list";
     }
 
     @GetMapping("/{id}")

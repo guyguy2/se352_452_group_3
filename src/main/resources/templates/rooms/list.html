@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container" th:switch="${rooms}">
+            <h2 th:case="null">No rooms yet!</h2>
+            <div th:case="*">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>description</th>
+                            <th>amenities</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="room : ${rooms}">
+                            <td th:text="${room.description}"></td>
+                            <td th:text="${room.amenities}"></td>
+                            <td><a th:href="@{edit/{id}(id=${room.id})}" class="btn btn-primary"><i
+                                        class="fas fa-user-edit ml-2"></i></a></td>
+                            <td><a th:href="@{delete/{id}(id=${room.id})}" class="btn btn-primary"><i
+                                        class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="my-5"><a href="add" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
