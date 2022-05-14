@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -29,6 +31,7 @@ public class Customer {
 	private String customerPhone;
 
 	@OneToMany (fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	@JoinTable(name = "CUSTOMER_ROOMS", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
 	@ToString.Exclude
 	private List<Room> rooms;
