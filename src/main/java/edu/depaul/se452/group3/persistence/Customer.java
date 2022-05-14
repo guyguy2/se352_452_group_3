@@ -34,7 +34,7 @@ public class Customer {
 	private List<Room> rooms;
 
 	@OneToMany (fetch = FetchType.EAGER)
-	@JoinTable(name = "CUSTOMER_RESERVATIONS", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
+	@JoinTable(name = "CUSTOMER_RESERVATION", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
 	@ToString.Exclude
 	private List<Reservation> reservations;
 

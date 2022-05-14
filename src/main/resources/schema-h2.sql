@@ -1,10 +1,11 @@
-DROP TABLE IF EXISTS customer CASCADE;
-DROP TABLE IF EXISTS room CASCADE;
-DROP TABLE IF EXISTS hotel CASCADE;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS hotel;
+DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS hotel_customers;
 DROP TABLE IF EXISTS hotel_rooms;
 DROP TABLE IF EXISTS customer_rooms;
 DROP TABLE IF EXISTS customer_reservations;
-DROP TABLE IF EXISTS reservation_rooms
+DROP TABLE IF EXISTS reservation_rooms;
 
 
 CREATE TABLE rooms (
@@ -18,19 +19,16 @@ CREATE TABLE rooms (
     PRIMARY KEY (ID)    
 );
 
-
 CREATE TABLE hotel (
   id INT AUTO_INCREMENT,
     name varchar(50),
     description varchar(50),
     address varchar(50),
-
     PRIMARY KEY (ID)
 );
 
 
 CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
---CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 
 CREATE TABLE customers (
   id INT AUTO_INCREMENT,    
@@ -62,16 +60,16 @@ CREATE TABLE customer_rooms (
         primary key(id)
 );
 
-CREATE TABLE customer_reservations (
+CREATE TABLE customer_reservation (
     id INT AUTO_INCREMENT,
         customer_id long,
-        reservations_id long,
+        reservation_id long,
         primary key(id)
 );
 
 CREATE TABLE reservation_rooms (
     id INT AUTO_INCREMENT,
-        reservations_id long,
+        reservation_id long,
         rooms_id long,
         primary key(id)
 )
