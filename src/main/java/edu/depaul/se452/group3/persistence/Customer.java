@@ -36,7 +36,7 @@ public class Customer {
 	@ToString.Exclude
 	private List<Room> rooms;
 
-	@OneToMany (fetch = FetchType.EAGER)
+	@OneToMany (fetch = FetchType.LAZY)
 	@JoinTable(name = "CUSTOMER_RESERVATION", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
 	@ToString.Exclude
 	private List<Reservation> reservations;
