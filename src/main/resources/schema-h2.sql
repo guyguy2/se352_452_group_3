@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS hotel_customers;
 DROP TABLE IF EXISTS hotel_rooms;
 DROP TABLE IF EXISTS customer_rooms;
-DROP TABLE IF EXISTS customer_reservations;
+DROP TABLE IF EXISTS customer_reservation;
 DROP TABLE IF EXISTS reservation_rooms;
 
 
@@ -60,16 +60,16 @@ CREATE TABLE customer_rooms (
         primary key(id)
 );
 
-CREATE TABLE customer_reservations (
+CREATE TABLE customer_reservation (
     id INT AUTO_INCREMENT,
         customer_id long,
-        reservations_id long,
+        reservation_id long,
         primary key(id)
 );
 
 CREATE TABLE reservation_rooms (
     id INT AUTO_INCREMENT,
-        reservations_id long,
+        reservation_id long,
         rooms_id long,
         primary key(id)
 )
