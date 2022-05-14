@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS hotel;
 DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS reservation;
 DROP TABLE IF EXISTS hotel_customers;
 DROP TABLE IF EXISTS hotel_rooms;
 DROP TABLE IF EXISTS customer_rooms;
@@ -17,6 +18,16 @@ CREATE TABLE rooms (
     price float(10),
     admitted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (ID)    
+);
+
+CREATE TABLE reservation (
+    id INT AUTO_INCREMENT,
+        checkInDate DATE NOT NULL,
+        checkOutDate DATE NOT NULL,
+        checkInTime time(7),
+        checkOutTime time(7),
+        numOfRooms varchar(10),
+        PRIMARY KEY (ID)
 );
 
 CREATE TABLE hotel (
