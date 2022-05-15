@@ -7,10 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import lombok.Data;
 
 @Data
 @Entity
+@RequestMapping("/room")
 public class Room {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
