@@ -3,6 +3,8 @@ package edu.depaul.se452.group3.persistence;
 
 import javax.persistence.*;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import lombok.Data;
 import lombok.ToString;
 

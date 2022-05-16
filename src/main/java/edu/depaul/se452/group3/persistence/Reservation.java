@@ -11,22 +11,30 @@ import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "reservation")
+@RequestMapping(path = {"/","/search"})
 public class Reservation {
 
     @Id
     @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
+
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = GenerationType.IDENTITY,
             generator = "primary_sequence"
     )
     private Long id;
