@@ -18,15 +18,14 @@
   </form>
   <table class="table table-bordered table-sm mt-2">
     <thead>
-<!--      <tr>-->
-<!--        <th>Id</th>-->
-<!--        <th>Owner Name</th>-->
-<!--        <th>Shop Type</th>-->
-<!--        <th>Shop Number</th>-->
-<!--        <th>Address</th>-->
-<!--        <th>Country</th>-->
-<!--        <th>Action</th>-->
-<!--      </tr>-->
+      <tr>
+        <th>Id</th>
+        <th>Check In Date</th>
+        <th>Check Out Date</th>
+        <th>Reservation Number</th>
+        <th>Guest Name</th>
+        <th>Room Number</th>
+      </tr>
     </thead>
     <tbody>
       <tr th:each="l : ${list}" th:field="${l}">
