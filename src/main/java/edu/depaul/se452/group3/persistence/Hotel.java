@@ -1,12 +1,16 @@
 package edu.depaul.se452.group3.persistence;
 
 import lombok.Data;
+import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
+@Table(name = "hotel")
 public class Hotel {
     @Id
     @Column(name = "id", nullable = false)
@@ -17,11 +21,16 @@ public class Hotel {
     private String description;
     private String address;
 
-    @Column
-    @ElementCollection(targetClass=Room.class)
-//    @OneToMany // (fetch = FetchType.EAGER)
-//    @JoinTable(name = "COURSE_STUDENTS", joinColumns = { @JoinColumn(name = "course_id", referencedColumnName = "id") })
-//    @ToString.Exclude
+    @OneToMany (fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinTable(name = "HOTEL_ROOMS", joinColumns = { @JoinColumn(name = "hotel_id", referencedColumnName = "id") })
+    @ToString.Exclude
     private List<Room> rooms;
+
+    @OneToMany (fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinTable(name = "HOTEL_CUSTOMERS", joinColumns = { @JoinColumn(name = "hotel_id", referencedColumnName = "id") })
+    @ToString.Exclude
+    private List<Customer> customers;
 
 }

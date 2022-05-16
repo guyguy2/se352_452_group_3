@@ -46,7 +46,7 @@ public class FindARoomApplication {
     }
 
     @Bean
-    public CommandLineRunner showGuests(CustomerRepository repository) {
+    public CommandLineRunner showCustomers(CustomerRepository repository) {
         return (args) -> {
             // fetch all
             System.out.println("Find all customers:");

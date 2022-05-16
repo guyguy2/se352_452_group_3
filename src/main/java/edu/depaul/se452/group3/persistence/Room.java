@@ -1,10 +1,7 @@
 package edu.depaul.se452.group3.persistence;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.Data;
 import lombok.ToString;
@@ -12,24 +9,25 @@ import lombok.ToString;
 @Data
 @Entity
 @ToString
+@Table(name = "Rooms")
 public class Room {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
 
-    //@Column(name="num")
+    @Column(name="number")
     private int number;
     
-    //@Column(name="desc")
+    @Column(name="description")
     private String description;
 
-    //@Column(name="amenities")
+    @Column(name="amenities")
     private String amenities;
 
-    //@Column(name="stat")
+    @Column(name="status")
     private String status;
 
-    //@Column(name="price")
+    @Column(name="price")
     private double price;
 
 }

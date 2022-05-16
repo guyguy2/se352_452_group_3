@@ -2,14 +2,14 @@ package edu.depaul.se452.group3.persistence;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import java.util.List;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 
 @Entity
@@ -45,5 +45,11 @@ public class Reservation {
 
     @Column
     private Integer numOfRooms;
+
+    @OneToMany (fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinTable(name = "RESERVATION_ROOMS", joinColumns = { @JoinColumn(name = "reservation_id", referencedColumnName = "id") })
+    @ToString.Exclude
+    private List<Room> rooms;
 
 }
