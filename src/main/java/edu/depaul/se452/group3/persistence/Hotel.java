@@ -21,14 +21,14 @@ public class Hotel {
     private String description;
     private String address;
 
-    @OneToMany (fetch = FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany (fetch = FetchType.LAZY)
+    //@Fetch(value = FetchMode.SUBSELECT)
     @JoinTable(name = "HOTEL_ROOMS", joinColumns = { @JoinColumn(name = "hotel_id", referencedColumnName = "id") })
     @ToString.Exclude
     private List<Room> rooms;
 
-    @OneToMany (fetch = FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany (fetch = FetchType.LAZY)
+    //@Fetch(value = FetchMode.SUBSELECT)
     @JoinTable(name = "HOTEL_CUSTOMERS", joinColumns = { @JoinColumn(name = "hotel_id", referencedColumnName = "id") })
     @ToString.Exclude
     private List<Customer> customers;

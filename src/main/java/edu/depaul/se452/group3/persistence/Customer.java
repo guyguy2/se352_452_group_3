@@ -30,13 +30,13 @@ public class Customer {
 	@Column(name = "ph")
 	private String customerPhone;
 
-	@OneToMany (fetch = FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
+	@OneToMany (fetch = FetchType.LAZY)
+	//@Fetch(value = FetchMode.SUBSELECT)
 	@JoinTable(name = "CUSTOMER_ROOMS", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
 	@ToString.Exclude
 	private List<Room> rooms;
 
-	@OneToMany (fetch = FetchType.EAGER)
+	@OneToMany (fetch = FetchType.LAZY)
 	@JoinTable(name = "CUSTOMER_RESERVATION", joinColumns = { @JoinColumn(name = "customer_id", referencedColumnName = "id") })
 	@ToString.Exclude
 	private List<Reservation> reservations;
