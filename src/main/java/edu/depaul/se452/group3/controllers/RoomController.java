@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.naming.Binding;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -38,6 +38,22 @@ public class RoomController {
         log.log(Level.SEVERE, rooms.toString());
         return "rooms/list";
     }
+
+    @PostMapping("/add")
+    public String add(@Validated Room room, BindingResult result, Model model){
+        if(result.hasErrors()) {
+            return "rooms/edit";
+        }
+        service.save(room);
+        return "redirect:/rooms";
+    }
+
+    @GetMapping("/add")
+    public String add(Room room, Model model){
+        model.addAttribute("room", room);
+        return "rooms/edit";
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Room> read(@PathVariable("id") Long id) {
