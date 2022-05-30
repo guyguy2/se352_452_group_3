@@ -24,20 +24,20 @@ public class RoomController {
     @Autowired
     private RoomService service;
 
-//    @GetMapping("/")
-//    public List<Room> getAllRooms() {
-//        List<Room> rooms = service.findAll();
-//        log.log(Level.SEVERE, rooms.toString());
-//        return rooms;
-//    }
-
     @GetMapping("/")
-    public String getAllRooms(Model model) {
+    public List<Room> getAllRooms() {
         List<Room> rooms = service.findAll();
         log.log(Level.SEVERE, rooms.toString());
-        model.addAttribute("rooms", rooms);
-        return "rooms/list";
+        return rooms;
     }
+
+//    @GetMapping("/")
+//    public String getAllRooms(Model model) {
+//        List<Room> rooms = service.findAll();
+//        log.log(Level.SEVERE, rooms.toString());
+//        model.addAttribute("rooms", rooms);
+//        return "rooms/list";
+//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Room> read(@PathVariable("id") Long id) {
