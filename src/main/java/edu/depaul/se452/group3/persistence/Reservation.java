@@ -22,12 +22,13 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "reservation")
-@RequestMapping(path = {"/","/search"})
+@RequestMapping(path = {"/search"})
 public class Reservation {
 
     @Id

@@ -5,6 +5,13 @@
             "name": "Launch FindARoomApplication",
             "request": "launch",
             "mainClass": "edu.depaul.se452.group3.FindARoomApplication",
+            "projectName": "se452"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindARoomApplication",
+            "request": "launch",
+            "mainClass": "edu.depaul.se452.group3.FindARoomApplication",
             "projectName": "demo"
         },
         {

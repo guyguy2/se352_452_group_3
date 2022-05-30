@@ -10,9 +10,12 @@
 </head>
 <body>
 <div class="container mt-5">
-<h2 align="center">Find A Room</h2>
+<h2 align="center">Search For Room</h2>
   <form th:action="@{/search}" method="get">
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find a Room by Date & Number" size="50" >
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Going to" size="50" >
+
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Checking in" size="25" >
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Checking out" size="25" >
   <button type="submit" class="btn btn-info" >Search</button>
   <button type="submit" class="btn btn-info" >Reset</button>
   </form>

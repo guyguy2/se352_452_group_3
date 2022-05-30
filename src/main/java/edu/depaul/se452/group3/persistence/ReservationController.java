@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReservationController {
     @Autowired
     
-    @RequestMapping(path = {"/","/search"})
+    @RequestMapping(path = {"/search"})
     public String search(@Param("checkInDate") String checkInDate, @Param("checkOutDate") String checkOutDate, @Param("checkInTime") String checkInTime, @Param("checkOutTime") String checkOutTime, @Param("numOfRooms") int numOfRooms, Model model) {
         if(checkInDate != null && checkOutDate != null && checkInTime != null && checkOutTime != null) {
  
@@ -20,7 +20,7 @@ public class ReservationController {
         
 
     }
-        return checkOutTime;
+        return null;
  
 
 }
