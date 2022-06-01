@@ -43,22 +43,12 @@
   <table class="table table-bordered table-sm mt-2">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Check In Date</th>
-        <th>Check Out Date</th>
-        <th>Reservation Number</th>
-        <th>Guest Name</th>
-        <th>Room Number</th>
+
       </tr>
     </thead>
     <tbody>
       <tr th:each="l : ${list}" th:field="${l}">
-        <td th:text="${lStat.index+1}"></td>
-        <td th:text="${l.checkInDate}"></td>
-        <td th:text="${l.checkOutDate}"></td>
-        <td th:text="${l.checkInTime}"></td>
-        <td th:text="${l.checkOutTime}"></td>
-        <td th:text="${l.number}"></td>
+
         <td>
         <a th:href="@{/update/{id}(id=${l.id})}" ><i class="fa fa-edit" ></i></a>
         <a th:href="@{/delete/{id}(id=${l.id})}" ><i class="fa fa-remove"></i></a>
