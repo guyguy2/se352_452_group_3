@@ -12,12 +12,33 @@
 <div class="container mt-5">
 <h2 align="center">Search For Room</h2>
   <form th:action="@{/search}" method="get">
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Going to" size="50" >
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Search for a room" size="50" >
 
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Checking in" size="25" >
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Checking out" size="25" >
-  <button type="submit" class="btn btn-info" >Search</button>
-  <button type="submit" class="btn btn-info" >Reset</button>
+
+
+                    <div class="field">
+                        <p class="control has-icons-right">
+                            <input class="input" type="date" id="admit_dt">
+                        </p>            
+                    </div>
+
+                    <div class="field">
+                        <p class="control has-icons-right">
+                            <input class="input" type="date" id="admit_dt">
+                        </p>            
+                    </div>
+
+<div class="select is-info">
+                            <select id="room_type">
+                                <option value="" disabled selected hidden>Room Type</option>
+                                <option value="Queen Bed">Queen Bed</option>
+                                <option value="King Bed">King Bed</option>
+                                <option value="Double Beds">Double Beds</option>
+                            </select>
+                    </div>
+                    <a href="rooms.html">Submit</a>
+
+    </form>
   </form>
   <table class="table table-bordered table-sm mt-2">
     <thead>
@@ -48,3 +69,5 @@
 </div>
 </body>
 </html>
+
+
