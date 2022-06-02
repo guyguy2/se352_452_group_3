@@ -7,7 +7,6 @@ import java.util.logging.Level;
 
 import edu.depaul.se452.group3.persistence.Customer;
 import edu.depaul.se452.group3.persistence.Reservation;
-import edu.depaul.se452.group3.persistence.Room;
 import edu.depaul.se452.group3.services.ReservationService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;

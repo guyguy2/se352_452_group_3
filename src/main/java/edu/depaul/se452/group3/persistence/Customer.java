@@ -10,6 +10,8 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "customers")
