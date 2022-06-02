@@ -10,31 +10,45 @@
 </head>
 <body>
 <div class="container mt-5">
-<h2 align="center">Find A Room</h2>
+<h2 align="center">Search For Room</h2>
   <form th:action="@{/search}" method="get">
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find a Room by Date & Number" size="50" >
-  <button type="submit" class="btn btn-info" >Search</button>
-  <button type="submit" class="btn btn-info" >Reset</button>
+  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Search for a room" size="50" >
+
+
+
+                    <div class="field">
+                        <p class="control has-icons-right">
+                            <input class="input" type="date" id="admit_dt">
+                        </p>            
+                    </div>
+
+                    <div class="field">
+                        <p class="control has-icons-right">
+                            <input class="input" type="date" id="admit_dt">
+                        </p>            
+                    </div>
+
+<div class="select is-info">
+                            <select id="room_type">
+                                <option value="" disabled selected hidden>Room Type</option>
+                                <option value="Queen Bed">Queen Bed</option>
+                                <option value="King Bed">King Bed</option>
+                                <option value="Double Beds">Double Beds</option>
+                            </select>
+                    </div>
+                    <a href="/rooms/">Submit</a>
+
+    </form>
   </form>
   <table class="table table-bordered table-sm mt-2">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Check In Date</th>
-        <th>Check Out Date</th>
-        <th>Reservation Number</th>
-        <th>Guest Name</th>
-        <th>Room Number</th>
+
       </tr>
     </thead>
     <tbody>
       <tr th:each="l : ${list}" th:field="${l}">
-        <td th:text="${lStat.index+1}"></td>
-        <td th:text="${l.checkInDate}"></td>
-        <td th:text="${l.checkOutDate}"></td>
-        <td th:text="${l.checkInTime}"></td>
-        <td th:text="${l.checkOutTime}"></td>
-        <td th:text="${l.number}"></td>
+
         <td>
         <a th:href="@{/update/{id}(id=${l.id})}" ><i class="fa fa-edit" ></i></a>
         <a th:href="@{/delete/{id}(id=${l.id})}" ><i class="fa fa-remove"></i></a>
@@ -45,3 +59,5 @@
 </div>
 </body>
 </html>
+
+
