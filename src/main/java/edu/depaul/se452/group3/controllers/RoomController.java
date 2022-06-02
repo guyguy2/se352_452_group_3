@@ -4,7 +4,6 @@ import edu.depaul.se452.group3.persistence.Room;
 import edu.depaul.se452.group3.services.RoomService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +21,6 @@ public class RoomController {
     @Autowired
     private RoomService service;
 
-//    @GetMapping("/")
-//    public List<Room> getAllRooms() {
-//        List<Room> rooms = service.findAll();
-//        log.log(Level.SEVERE, rooms.toString());
-//        return rooms;
-//    }
 
     @GetMapping("/")
     public String getAllRooms(Model model) {
@@ -37,16 +30,28 @@ public class RoomController {
         return "rooms/list";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Room> read(@PathVariable("id") Long id) {
-        Optional<Room> foundRoom = service.find(id);
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Room> read(@PathVariable("id") Long id) {
+//        Optional<Room> foundRoom = service.find(id);
+//
+//        if (foundRoom.isPresent()) {
+//            log.log(Level.INFO, foundRoom.get().toString());
+//            return ResponseEntity.ok(foundRoom.get());
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
-        if (foundRoom.isPresent()) {
-            log.log(Level.INFO, foundRoom.get().toString());
-            return ResponseEntity.ok(foundRoom.get());
-        } else {
-            return ResponseEntity.notFound().build();
+    @GetMapping("/details/{id}")
+    public String getOne(@PathVariable("id") Long id, Model model) {
+        Optional<Room> room = service.find(id);
+        if (room.isPresent()) {
+            model.addAttribute("rooms", room.get());
+            return "rooms/details";
+
+        }else{
+            return "No room found";
         }
-    }
 
+    }
 }
