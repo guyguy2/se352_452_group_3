@@ -19,8 +19,8 @@ INSERT INTO customers(cust_ID, name, email, ph) VALUES
             ('990011', 'Michael Symon', 'msymon@michaelsymon.com', '630-345-9087'),
             ('223344', 'Jose Andres', 'jandres@joseandres.com', '773-954-3423');
 
-INSERT INTO reservation(checkInDate, checkOutDate, checkInTime, checkOutTime, numOfRooms) VALUES
-            ('2022-07-01','2022-07-10', '1500', '1100', '2');
+INSERT INTO reservation(check_In_Date, check_Out_Date) VALUES
+            ('2022-07-01','2022-07-10');
 
 INSERT INTO customer_rooms(rooms_id) select id from rooms;
 INSERT INTO hotel_customers(customer_id) select id from customers;

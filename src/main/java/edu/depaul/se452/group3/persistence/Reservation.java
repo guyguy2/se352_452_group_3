@@ -2,12 +2,11 @@ package edu.depaul.se452.group3.persistence;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -23,11 +22,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Data
 @Entity
-@Getter
-@Setter
 @Table(name = "reservation")
-@RequestMapping(path = {"/","/search"})
 public class Reservation {
 
     @Id
@@ -45,19 +42,16 @@ public class Reservation {
     @Column
     private LocalDate checkOutDate;
 
-    @Column
-    private LocalTime checkInTime;
-
-    @Column
-    private LocalTime checkOutTime;
-
-    @Column
-    private Integer numOfRooms;
+//    @Column
+//    private Integer numOfRooms;
 
     @OneToMany (fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
     @JoinTable(name = "RESERVATION_ROOMS", joinColumns = { @JoinColumn(name = "reservation_id", referencedColumnName = "id") })
     @ToString.Exclude
     private List<Room> rooms;
+
+    @OneToMany(mappedBy="id",fetch=FetchType.LAZY,cascade = CascadeType.PERSIST)
+    private List<Customer> customers = new ArrayList<>();
 
 }

@@ -17,19 +17,13 @@ import java.util.List;
 
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
-    @Query(value = "SELECT * FROM Reservation WHERE checkInDate = ?1", nativeQuery = true)
-    List<Reservation> findByCheckInDate(String checkInDate);
-
-    @Query (value = "SELECT * FROM Reservation WHERE checkOutDate = ?1", nativeQuery = true)
-    List<Reservation> findByCheckOutDate(String checkOutDate);
-
-    @Query (value = "SELECT * FROM Reservation WHERE checkInTime = ?1", nativeQuery = true)
-    List<Reservation> findByCheckInTime(String checkInTime);
-
-    @Query (value = "SELECT * FROM Reservation WHERE checkOutTime = ?1", nativeQuery = true)
-    List<Reservation> findByCheckOutTime(String checkOutTime);
-
-    @Query (value = "SELECT * FROM Reservation WHERE numOfRooms = ?1", nativeQuery = true)
-    List<Reservation> findByNumOfRooms(int numOfRooms);
+//    @Query(value = "SELECT * FROM Reservation WHERE checkInDate = ?1", nativeQuery = true)
+//    List<Reservation> findByCheckInDate(String checkInDate);
+//
+//    @Query (value = "SELECT * FROM Reservation WHERE checkOutDate = ?1", nativeQuery = true)
+//    List<Reservation> findByCheckOutDate(String checkOutDate);
+//
+//    @Query (value = "SELECT * FROM Reservation WHERE numOfRooms = ?1", nativeQuery = true)
+//    List<Reservation> findByNumOfRooms(int numOfRooms);
 
 }

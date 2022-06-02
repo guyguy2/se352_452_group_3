@@ -70,13 +70,7 @@ public class FindARoomApplication {
         List<Room> list =  (List<Room>)repository.findAll();
         return list;
        }
-       
-       /*
-        * TODO: Get Shop By keyword
-        */
-       public List<Reservation> getByDate(ReservationRepository repository){
-        return repository.findByCheckInDate("2019-01-01");
-       }
+
 
 
 }

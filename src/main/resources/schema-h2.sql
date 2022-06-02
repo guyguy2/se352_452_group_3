@@ -20,14 +20,21 @@ CREATE TABLE rooms (
     PRIMARY KEY (ID)    
 );
 
+CREATE TABLE customers (
+  id INT AUTO_INCREMENT,
+    CUST_ID VARCHAR(10),
+    name VARCHAR(50),
+    email VARCHAR(50),
+    ph VARCHAR(50),
+    PRIMARY KEY (ID)
+);
+
 CREATE TABLE reservation (
     id INT AUTO_INCREMENT,
-        checkInDate DATE NOT NULL,
-        checkOutDate DATE NOT NULL,
-        checkInTime time(7),
-        checkOutTime time(7),
-        numOfRooms varchar(10),
-        PRIMARY KEY (ID)
+        check_In_Date DATE ,
+        check_Out_Date DATE,
+        PRIMARY KEY (ID),
+        FOREIGN KEY(ID) REFERENCES customers
 );
 
 CREATE TABLE hotel (
@@ -41,14 +48,7 @@ CREATE TABLE hotel (
 
 CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
 
-CREATE TABLE customers (
-  id INT AUTO_INCREMENT,    
-    CUST_ID VARCHAR(10),
-    name VARCHAR(50),
-    email VARCHAR(50),
-    ph VARCHAR(50),
-    PRIMARY KEY (ID)    
-);
+
 
 CREATE TABLE hotel_customers (
     id INT AUTO_INCREMENT,

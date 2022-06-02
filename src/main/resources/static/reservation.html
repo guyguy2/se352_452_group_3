@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML5</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        :root {
+            --fa-style-family: "Font Awesome 6 Free";
+            --fa-style: 400;
+            --fa-border-color: blue;
+            --fa-primary-color: blue;
+            --fa-secondary-color: red;
+          }
+        .layout {
+            display: grid;
+            grid-template:
+                "h h h h"
+                "s c c c"
+                "f f f f"
+        }
+
+        .header {
+            grid-area: h;
+        }
+
+        .content {
+            grid-area: c;
+        }
+
+        .sidebar {
+            grid-area: s;
+        }
+
+        .footer {
+            grid-area: f;
+        }
+
+    </style>
+</head>
+
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<section class="layout">
+    <section class="header title has-text-centered">
+        Reservation
+    </section>
+
+    <section class="content">
+        <h4>Guest Information</h4>
+
+        <section id="data-entry container">
+            <form action="/reservations/process" method="get">
+                <div class="field">
+                    <p class="control has-icons-right">
+                        <input class="input" type="text" placeholder="Enter Name" name="name" required>
+                        <span class="icon is-right">
+                                <i class="fa fa-check"></i>
+                            </span>
+                    </p>
+
+                </div>
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="email"
+                               placeholder="Enter Email" id="email" name="email" required>
+                        <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        <span class="icon is-small is-right">
+                                <i class="fa fa-check"></i>
+                            </span>
+                    </p>
+                </div>
+
+
+                <div class="field">
+                    <p class="control has-icons-right">
+                        <input class="input" type="date" id="start_dt" name="from_date">
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control has-icons-right">
+                        <input class="input" type="date" placeholder="end date" id="end_dt" name="end_date">
+                    </p>
+                </div>
+                <div class="select is-info">
+                    <select id="room_type">
+                        <option value="" disabled selected hidden>Room Type</option>
+                        <option value="King">King</option>
+                        <option value="Queen">Queen</option>
+                        <option value="Double">Double</option>
+                    </select>
+                </div>
+                <br><br><br>
+
+                <h4>Payment Information</h4>
+                <label for="ccn">Credit Card Number:</label>
+                <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+
+                <label for="inputExp">Expiration</label> <input type="tel"
+                                                                class="form-control" id="inputExp" name="cc_exp"
+                                                                placeholder="MM/YY" required>
+
+                <label for="CVV">CVV</label> <input type="number"
+                                                    class="form-control" id="CVV" name="cvv" placeholder="3 digits"
+                                                    required>
+
+                <br><br>
+                <section id="form-action">
+                    <button class="button is-small is-success" type="submit">Submit</button>
+                    <button class="button is-small is-warning" type="reset">Reset</button>
+                </section>
+
+            </form>
+
+
+
+        </section>
+    </section>
+    <section class="sidebar menu">
+        <ul class="menu-list">
+            <li><a class="link level-item is-info" href="./index.html" target="_self">Home</a></li>
+        </ul>
+    </section>
+    <footer class="footer has-text-centered">
+        @DePaul CDM SE452 Group 3
+    </footer>
+</section>
+<script src="" async defer></script>
+</body>
+
+</html>
