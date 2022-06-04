@@ -13,4 +13,6 @@ import java.util.List;
 
 public interface RoomRepository extends JpaRepository<Room, Long> {
     Room findByNumber(int name);
+
+
 }

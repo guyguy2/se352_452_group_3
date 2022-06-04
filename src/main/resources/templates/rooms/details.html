@@ -87,10 +87,10 @@
 
     <body>
     <div class="topnav" id="topnav">
-        <a href="index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Login.html">Login</a>
-        <a href="Signup.html"> Sign Up</a>
+        <a href="../">Back</a>
+        <a href="">About</a>
+        <a href="">Login</a>
+        <a href="">Sign Up</a>
     </div>
     <section class="section">
         <div class="container" th:switch="${rooms}">
@@ -110,19 +110,19 @@
                                         <table class="table" >
                                             <tbody>
                                             <tr th:each="room : ${rooms}">
-                                                <td th:text="Description"> </td>
+                                                <td style="font-weight:bold" th:text="Description"> </td>
                                                 <td th:text= "${room.description}"></td>
                                             </tr>
                                             <tr th:each="room : ${rooms}">
-                                                <td th:text="Amenities"></td>
+                                                <td style="font-weight:bold" th:text="Amenities"></td>
                                                 <td th:text="${room.amenities}"></td>
                                             </tr>
                                             <tr th:each="room : ${rooms}">
-                                                <td th:text="Status"></td>
+                                                <td style="font-weight:bold" th:text="Status"></td>
                                                 <td th:text="${room.status}"></td>
                                             </tr>
                                             <tr th:each="room : ${rooms}">
-                                                <td th:text="Price"></td>
+                                                <td style="font-weight:bold" th:text="Price"></td>
                                                 <td th:text="${room.price}"></td>
                                             </tr>
                                             </tbody>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                <button class="button is-small is-success" type="book" href="/reservation.html">Book</button>
+                <a href="/reservation.html" class="button is-small is-success">Book</a>
                     <hr>
             </div>
 
