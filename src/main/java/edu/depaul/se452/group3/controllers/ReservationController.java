@@ -65,7 +65,7 @@ public class ReservationController {
         reservation.setCustomers(customers);
         service.save(reservation);
 
-        return "reservation"; 
+        return "reservation";
     }
 
     //getById

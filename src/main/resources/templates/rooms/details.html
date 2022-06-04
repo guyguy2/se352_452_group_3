@@ -123,7 +123,7 @@
                                             </tr>
                                             <tr th:each="room : ${rooms}">
                                                 <td style="font-weight:bold" th:text="Price"></td>
-                                                <td th:text="${room.price}"></td>
+                                                <td th:text="'$' + ${room.price}"></td>
                                             </tr>
                                             </tbody>
                                         </table>
