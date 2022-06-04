@@ -46,9 +46,7 @@ CREATE TABLE hotel (
 );
 
 
-CREATE SEQUENCE hibernate_sequence START WITH 100 INCREMENT BY 1;
-
-
+CREATE SEQUENCE hibernate_sequence START WITH 3 INCREMENT BY 1;
 
 CREATE TABLE hotel_customers (
     id INT AUTO_INCREMENT,

@@ -89,66 +89,24 @@
     }
 </style>
 
-<style>
-        :root {
-            --fa-style-family: "Font Awesome 6 Free";
-            --fa-style: 400;
-            --fa-border-color: blue;
-            --fa-primary-color: blue;
-            --fa-secondary-color: red;
-          }
-        .layout {
-            display: grid;
-            grid-template:
-                "h h h h"
-                "s c c c"
-                "f f f f"
-        }
-
-        .header {
-            grid-area: h;
-        }
-
-        .content {
-            grid-area: c;
-        }
-
-        .sidebar {
-            grid-area: s;
-        }
-
-        .footer {
-            grid-area: f;
-        }
-
-    </style>
-
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 <section class="layout">
     <section class="header title has-text-centered">
-        Reservation Information
+        Error
     </section>
 
     <section class="content">
-        <br><br>
-        <section id="data-entry container">
-            <h5>Reservation ID: <span th:text="${id}"></span></h5>
-            <br>
-            <h5>Name: <span th:text="${name}"></span></h5>
-            <h5>Email: <span th:text="${email}"></span></h5>
-            <h5>Phone: <span th:text="${phone}"></span></h5>
-            <br>
-            <h5>From: <span th:text="${from}"></span></h5>
-            <h5>To: <span th:text="${to}"></span></h5>
-            <h5>Room Type: <span th:text="Queen"></span></h5>
-            <br><br>
+
+
+        <h3 style="text-align:center">Something went wrong. Please try again</h3>
+
+
         </section>
     </section>
     <section class="sidebar menu">
         <ul class="menu-list">
-
         </ul>
     </section>
     <footer class="footer has-text-centered">

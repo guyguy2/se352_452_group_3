@@ -3,6 +3,7 @@ package edu.depaul.se452.group3.controllers;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 
 import edu.depaul.se452.group3.persistence.Customer;
@@ -10,7 +11,6 @@ import edu.depaul.se452.group3.persistence.Reservation;
 import edu.depaul.se452.group3.services.ReservationService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-//TODO - save, load, link with customer data, success/failure message
 @Controller
 @RequestMapping("/reservations")
 @Log
@@ -34,7 +33,7 @@ public class ReservationController {
         log.log(Level.SEVERE, reservations.toString());
         System.out.println(reservations);///
 //        model.addAttribute("rooms", rooms);
-        return "rooms/list";
+        return "reservations/reservationInfo";
     }
 
     //TODO use encryption for CC information
@@ -70,9 +69,25 @@ public class ReservationController {
 
     //getById
     @GetMapping("/{id}") //save
-    public String getReservation(@PathVariable String id) {
+    public String getReservation(@PathVariable String id, Model model) {
         System.out.println("getReservation");
-
+        try {
+            long idLong = Long.parseLong(id);
+            Optional<Reservation> reservation = service.find(idLong);
+            if (reservation == null || reservation.isEmpty()) {
+                model.addAttribute("id",id);
+                return "reservations/notFound";
+            }
+            Reservation reservationObj = reservation.get();
+            model.addAttribute("name", reservationObj.getCustomers().get(0).getName());
+            model.addAttribute("email", reservationObj.getCustomers().get(0).getEmail());
+            model.addAttribute("phone", reservationObj.getCustomers().get(0).getCustomerPhone());
+            model.addAttribute("from", reservationObj.getCheckInDate());
+            model.addAttribute("to", reservationObj.getCheckOutDate());
+            model.addAttribute("id", reservationObj.getId());
+        } catch (Exception e) {
+            return "error";
+        }
 
         return "reservations/reservationInfo";
     }
