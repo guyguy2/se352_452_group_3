@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +41,7 @@ public class ReservationController {
     @GetMapping(path = {"/process"}) //save
     public String process(@RequestParam("name") String name,
                           @RequestParam("email") String email,
+                          @RequestParam("tel") String tel,
                           @RequestParam("from_date") String from_date,
                           @RequestParam("end_date") String end_date,
                           @RequestParam("cc_exp") String cc_exp,
@@ -49,19 +51,21 @@ public class ReservationController {
         Customer customer = new Customer();
         customer.setName(name);
         customer.setEmail(email);
+        customer.setCustomerPhone(tel);
         List<Customer> customers = new ArrayList<>();
         customers.add(customer);
 
         Reservation reservation = new Reservation();
-        reservation.setCheckInDate(LocalDate.now());
-        reservation.setCheckOutDate(LocalDate.now());
-        reservation.setCustomers(customers); ///
+        if (StringUtils.hasText(from_date)) {
+            reservation.setCheckInDate(LocalDate.parse(from_date));
+        }
+        if (StringUtils.hasText(end_date)) {
+            reservation.setCheckOutDate(LocalDate.parse(end_date));
+        }
+        reservation.setCustomers(customers);
         service.save(reservation);
-        //on success
 
-        //on failure
-
-        return "reservation"; ///fix
+        return "reservation"; 
     }
 
     //getById
