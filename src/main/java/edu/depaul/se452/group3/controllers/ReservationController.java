@@ -65,7 +65,7 @@ public class ReservationController {
         reservation.setCustomers(customers);
         service.save(reservation);
 
-        return "reservation";
+        return "reservations/reservationConfirm";
     }
 
     //getById
@@ -74,6 +74,6 @@ public class ReservationController {
         System.out.println("getReservation");
 
 
-        return "reservation";
+        return "reservations/reservationInfo";
     }
 }
