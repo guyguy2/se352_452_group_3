@@ -96,15 +96,21 @@
 
     <strong>Lookup an existing reservation</strong> <br>
 
-
-
-
-    <form th:action="@{/reservations/}" method="get">
-        <input type="text" name="id" th:value="${id}"  placeholder="Enter an existing reservation ID" size="50" >
+    <form id="your_form"  th:action="@{/reservations/}" onsubmit="yourFunction()">
+        <input type="number" name="id" th:value="${id}"  placeholder="Enter reservation ID" size="100" >
         <a href='reservations/'>
             <button class="button is-small is-success" type="submit" >Search</button>
         </a>
     </form>
+
+    <script>
+        function yourFunction(){
+            var action_src = "/reservations/" + document.getElementsByName("id")[0].value;
+            var your_form = document.getElementById('your_form');
+            your_form.action = action_src ;
+        }
+    </script>
+
 
     <form th:action="@{/rooms/}" method="get">
 
