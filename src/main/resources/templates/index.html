@@ -94,21 +94,31 @@
     </section>
     <br><br>
 
-  <form th:action="@{/rooms/}" method="get">
-  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Search for an existing reservation" size="50" >
-  <button class="button is-small is-success" type="submit" href="/reservations/">Search</button>
+    <strong>Lookup an existing reservation</strong> <br>
+
+
+
+
+    <form th:action="@{/reservations/}" method="get">
+        <input type="text" name="id" th:value="${id}"  placeholder="Enter an existing reservation ID" size="50" >
+        <a href='reservations/'>
+            <button class="button is-small is-success" type="submit" >Search</button>
+        </a>
+    </form>
+
+    <form th:action="@{/rooms/}" method="get">
 
 <br><br>
-<hr>
+<strong>Search for available rooms</strong> <br>
                     <div class="field">
                         <p class="control has-icons-right">
-                            <input class="input" type="date" id="admit_dt">
+                            <input class="input" type="date" id="admit_dt" name="from_date">
                         </p>            
                     </div>
 
                     <div class="field">
                         <p class="control has-icons-right">
-                            <input class="input" type="date" id="admit_dt">
+                            <input class="input" type="date" id="admit_dt" name="to_date">
                         </p>            
                     </div>
 
