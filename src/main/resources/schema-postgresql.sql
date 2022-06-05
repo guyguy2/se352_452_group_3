@@ -40,8 +40,8 @@ CREATE TABLE customers (
 
 CREATE TABLE reservation (
         id serial  PRIMARY KEY,
-        checkInDate DATE NOT NULL,
-        checkOutDate DATE NOT NULL,
+        check_In_Date DATE NOT NULL,
+        check_Out_Date DATE NOT NULL,
         checkInTime time(7),
         checkOutTime time(7),
         numOfRooms varchar(10)
