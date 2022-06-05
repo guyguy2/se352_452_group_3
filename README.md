@@ -7,7 +7,10 @@
 ## Project scope: 
 - The project developed will be a hotel reservation system.
 ## Initial key features: 
-- Search for a room based on provided check-in and check-out dates, book a room (includes payment and signing in to the application), view reservation, cancel reservation, edit a reservation. 
-- Use case diagram and UML class diagram created and added to our MS1 document. 
-- See available rooms in the entire hotel.
+- Search for all avaialble rooms in a hotel
+- View all rooms available in the hotel
+- View specific room details of a room 
+- Book a room, which includes adding guest information and payment 
+- Search for a reservation
+## Use case diagram and UML class diagram created and added to our final milestone document. 
 
